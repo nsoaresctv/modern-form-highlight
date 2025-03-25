@@ -15,6 +15,10 @@ const Hero: React.FC = () => {
           Création de sites web professionnels
         </div>
         
+        <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100/50 border border-green-200 text-green-700 text-sm font-medium mb-4">
+          Site web vitrine à partir de 599€ HT livré en 72h seulement !
+        </div>
+        
         <h1 className="text-4xl md:text-6xl font-bold font-heading tracking-tight text-balance">
           <span className="gradient-text">Transformez votre vision</span> en une présence web remarquable
         </h1>
