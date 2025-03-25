@@ -30,15 +30,15 @@ const QuoteForm: React.FC = () => {
   
   return (
     <section id="quote" className="py-24 px-6 md:px-12 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.01] to-primary/[0.03] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-indigo-50 pointer-events-none" />
       
-      <div className="absolute top-1/4 -right-20 w-64 h-64 rounded-full bg-blue-200/10 blur-3xl" />
-      <div className="absolute bottom-1/3 -left-20 w-80 h-80 rounded-full bg-purple-200/10 blur-3xl" />
+      <div className="absolute top-1/4 -right-20 w-64 h-64 rounded-full bg-blue-300/20 blur-3xl" />
+      <div className="absolute bottom-1/3 -left-20 w-80 h-80 rounded-full bg-purple-300/20 blur-3xl" />
       
       <div className="max-w-7xl mx-auto relative">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12 animate-slide-up opacity-0" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-foreground/5 border border-foreground/10 text-sm text-foreground/70 mb-4">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-primary text-white mb-4">
               Demande de devis
             </div>
             <h2 className="text-3xl md:text-4xl font-bold font-heading gradient-text">
@@ -62,7 +62,7 @@ const QuoteForm: React.FC = () => {
                     type="text"
                     placeholder="John Doe"
                     required
-                    className="input-shine"
+                    className="input-shine border-blue-200 focus:border-blue-400"
                   />
                 </div>
                 
@@ -76,7 +76,7 @@ const QuoteForm: React.FC = () => {
                     type="email"
                     placeholder="john@example.com"
                     required
-                    className="input-shine"
+                    className="input-shine border-blue-200 focus:border-blue-400"
                   />
                 </div>
                 
@@ -89,7 +89,7 @@ const QuoteForm: React.FC = () => {
                     name="phone"
                     type="tel"
                     placeholder="+33 6 12 34 56 78"
-                    className="input-shine"
+                    className="input-shine border-blue-200 focus:border-blue-400"
                   />
                 </div>
                 
@@ -102,7 +102,7 @@ const QuoteForm: React.FC = () => {
                     name="company"
                     type="text"
                     placeholder="Votre entreprise"
-                    className="input-shine"
+                    className="input-shine border-blue-200 focus:border-blue-400"
                   />
                 </div>
               </div>
@@ -115,7 +115,7 @@ const QuoteForm: React.FC = () => {
                   id="project"
                   name="project"
                   required
-                  className="w-full px-4 py-2 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-foreground/10 transition-all duration-200"
+                  className="w-full px-4 py-2 rounded-lg border border-blue-200 bg-background focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-200"
                 >
                   <option value="" disabled selected>Sélectionnez une option</option>
                   <option value="site-vitrine">Site vitrine</option>
@@ -134,7 +134,7 @@ const QuoteForm: React.FC = () => {
                   name="message"
                   placeholder="Décrivez votre projet, vos objectifs et vos besoins..."
                   rows={5}
-                  className="resize-none input-shine"
+                  className="resize-none input-shine border-blue-200 focus:border-blue-400"
                   required
                 />
               </div>
@@ -142,7 +142,7 @@ const QuoteForm: React.FC = () => {
               <div className="pt-4">
                 <Button
                   type="submit"
-                  className="w-full py-6 rounded-xl bg-gradient-to-r from-foreground to-foreground/90 text-white font-medium hover-scale transition-all duration-300"
+                  className="w-full py-6 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium hover-scale transition-all duration-300"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Envoi en cours...' : 'Demander mon devis gratuitement'}

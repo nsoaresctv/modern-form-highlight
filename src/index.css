@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -36,6 +37,12 @@
     --ring: 222 47% 11%;
 
     --radius: 1rem;
+    
+    /* New color variables */
+    --blue-accent: 224 76% 48%;
+    --purple-accent: 265 83% 57%;
+    --teal-accent: 174 84% 32%;
+    --orange-accent: 24 94% 72%;
   }
 
   * {
@@ -91,7 +98,7 @@
   }
   
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-blue-600 to-teal-500;
   }
   
   .frost-blur {
@@ -107,6 +114,35 @@
   .main-content {
     max-width: 1440px;
     margin: 0 auto;
+  }
+  
+  /* New colorful components */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-blue-500 to-indigo-600;
+  }
+  
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-r from-purple-500 to-pink-500;
+  }
+  
+  .bg-gradient-accent {
+    @apply bg-gradient-to-r from-teal-400 to-blue-500;
+  }
+  
+  .bg-gradient-soft {
+    @apply bg-gradient-to-r from-orange-300 to-pink-300;
+  }
+  
+  .glass-blue {
+    @apply backdrop-blur-xl bg-blue-500/10 border border-blue-300/20 shadow-lg;
+  }
+  
+  .glass-purple {
+    @apply backdrop-blur-xl bg-purple-500/10 border border-purple-300/20 shadow-lg;
+  }
+  
+  .glass-teal {
+    @apply backdrop-blur-xl bg-teal-500/10 border border-teal-300/20 shadow-lg;
   }
 }
 

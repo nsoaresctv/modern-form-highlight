@@ -19,13 +19,13 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
         <a href="#process" className="text-sm text-foreground/80 hover:text-foreground smooth-transition">
           Processus
         </a>
-        <a href="#contact" className="text-sm text-foreground/80 hover:text-foreground smooth-transition">
+        <a href="#quote" className="text-sm text-foreground/80 hover:text-foreground smooth-transition">
           Contact
         </a>
       </nav>
       <a 
         href="#quote" 
-        className="px-4 py-2 text-sm font-medium rounded-full bg-gradient-to-r from-foreground to-foreground/90 text-white hover-scale"
+        className="px-4 py-2 text-sm font-medium rounded-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white hover-scale"
       >
         Demander un devis
       </a>
