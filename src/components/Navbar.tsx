@@ -10,7 +10,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
   return (
     <header className={cn("w-full py-4 px-6 md:px-8 flex items-center justify-between fixed top-0 left-0 right-0 z-50 glass-dark", className)}>
       <div className="flex items-center">
-        <h1 className="text-xl font-medium font-heading gradient-text">WebCraft</h1>
+        <h1 className="text-xl font-medium font-heading gradient-text">CitinovStudio</h1>
       </div>
       <nav className="hidden md:flex items-center space-x-6">
         <a href="#services" className="text-sm text-foreground/80 hover:text-foreground smooth-transition">

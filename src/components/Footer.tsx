@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
-            <h2 className="text-xl font-medium font-heading gradient-text">WebCraft</h2>
+            <h2 className="text-xl font-medium font-heading gradient-text">CitinovStudio</h2>
             <p className="mt-4 text-foreground/70 max-w-md">
               Nous créons des sites web professionnels qui aident les entreprises à se démarquer et à atteindre leurs objectifs.
             </p>
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground/80">Contact</h3>
             <ul className="mt-4 space-y-2">
               <li className="text-foreground/70">
-                contact@webcraft.fr
+                contact@citinovstudio.fr
               </li>
               <li className="text-foreground/70">
                 +33 1 23 45 67 89
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
         
         <div className="mt-12 pt-8 border-t border-foreground/10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-foreground/60 text-sm">
-            &copy; {currentYear} WebCraft. Tous droits réservés.
+            &copy; {currentYear} CitinovStudio. Tous droits réservés.
           </p>
           
           <div className="mt-4 md:mt-0 flex space-x-6">
