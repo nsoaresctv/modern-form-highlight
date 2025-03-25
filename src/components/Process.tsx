@@ -15,7 +15,7 @@ const steps = [
   {
     number: '03',
     title: 'Conception',
-    description: 'Notre équipe crée un design sur mesure qui reflète l'identité de votre marque.'
+    description: 'Notre équipe crée un design sur mesure qui reflète l\'identité de votre marque.'
   },
   {
     number: '04',
