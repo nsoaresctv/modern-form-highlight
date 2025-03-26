@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col sm:flex-row gap-4 pt-6">
           <a 
             href="#quote" 
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-foreground to-foreground/90 text-white font-medium hover-scale"
+            className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 text-white font-medium hover-scale transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Demander un devis
           </a>
