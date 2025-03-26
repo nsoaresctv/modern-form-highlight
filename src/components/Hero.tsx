@@ -7,6 +7,7 @@ const Hero: React.FC = () => {
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-12 pt-20 pb-10 overflow-hidden grid-background">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.01] to-primary/[0.05] pointer-events-none" />
       
+      {/* Optimized background elements - using fewer CSS properties */}
       <div className="absolute top-1/4 -left-20 w-64 h-64 rounded-full bg-blue-200/10 blur-3xl" />
       <div className="absolute bottom-1/4 -right-20 w-80 h-80 rounded-full bg-purple-200/10 blur-3xl" />
       
