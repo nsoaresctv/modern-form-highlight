@@ -1,21 +1,57 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
+import emailjs from 'emailjs-com';
 
 const QuoteForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    project: '',
+    message: ''
+  });
   const { toast } = useToast();
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        to_email: 'hello@citinov.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        project_type: formData.project,
+        message: formData.message,
+      };
+      
+      // Send email using EmailJS
+      // Note: You'll need to sign up for EmailJS and set up a service, template, and user ID
+      await emailjs.send(
+        'service_id',  // Replace with your EmailJS service ID
+        'template_id', // Replace with your EmailJS template ID
+        templateParams,
+        'user_id'      // Replace with your EmailJS user ID
+      );
+      
+      // Show success toast
       toast({
         title: "Demande envoyée",
         description: "Nous vous contacterons bientôt avec votre devis.",
@@ -23,9 +59,25 @@ const QuoteForm: React.FC = () => {
       });
       
       // Reset form
-      const form = e.target as HTMLFormElement;
-      form.reset();
-    }, 1500);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        project: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite lors de l'envoi du formulaire. Veuillez réessayer.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
@@ -54,7 +106,7 @@ const QuoteForm: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">
-                    Nom complet
+                    Nom complet <span className="text-red-500">*</span>
                   </label>
                   <Input
                     id="name"
@@ -62,13 +114,15 @@ const QuoteForm: React.FC = () => {
                     type="text"
                     placeholder="John Doe"
                     required
+                    value={formData.name}
+                    onChange={handleChange}
                     className="input-shine border-blue-200 focus:border-blue-400"
                   />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">
-                    Email
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <Input
                     id="email"
@@ -76,19 +130,24 @@ const QuoteForm: React.FC = () => {
                     type="email"
                     placeholder="john@example.com"
                     required
+                    value={formData.email}
+                    onChange={handleChange}
                     className="input-shine border-blue-200 focus:border-blue-400"
                   />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="phone" className="text-sm font-medium">
-                    Téléphone
+                    Téléphone <span className="text-red-500">*</span>
                   </label>
                   <Input
                     id="phone"
                     name="phone"
                     type="tel"
                     placeholder="+33 6 12 34 56 78"
+                    required
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="input-shine border-blue-200 focus:border-blue-400"
                   />
                 </div>
@@ -102,6 +161,8 @@ const QuoteForm: React.FC = () => {
                     name="company"
                     type="text"
                     placeholder="Votre entreprise"
+                    value={formData.company}
+                    onChange={handleChange}
                     className="input-shine border-blue-200 focus:border-blue-400"
                   />
                 </div>
@@ -109,15 +170,17 @@ const QuoteForm: React.FC = () => {
               
               <div className="space-y-2">
                 <label htmlFor="project" className="text-sm font-medium">
-                  Type de projet
+                  Type de projet <span className="text-red-500">*</span>
                 </label>
                 <select
                   id="project"
                   name="project"
                   required
+                  value={formData.project}
+                  onChange={handleChange}
                   className="w-full px-4 py-2 rounded-lg border border-blue-200 bg-background focus:outline-none focus:ring-2 focus:ring-blue-400/20 transition-all duration-200"
                 >
-                  <option value="" disabled selected>Sélectionnez une option</option>
+                  <option value="" disabled>Sélectionnez une option</option>
                   <option value="site-vitrine">Site vitrine</option>
                   <option value="e-commerce">Site e-commerce</option>
                   <option value="refonte">Refonte de site</option>
@@ -127,15 +190,17 @@ const QuoteForm: React.FC = () => {
               
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium">
-                  Description du projet
+                  Description du projet <span className="text-red-500">*</span>
                 </label>
                 <Textarea
                   id="message"
                   name="message"
                   placeholder="Décrivez votre projet, vos objectifs et vos besoins..."
                   rows={5}
-                  className="resize-none input-shine border-blue-200 focus:border-blue-400"
                   required
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="resize-none input-shine border-blue-200 focus:border-blue-400"
                 />
               </div>
               
