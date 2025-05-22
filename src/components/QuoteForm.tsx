@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,7 +8,7 @@ import emailjs from 'emailjs-com';
 
 const QuoteForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = React.useState({
     name: '',
     email: '',
     phone: '',
@@ -18,15 +18,15 @@ const QuoteForm: React.FC = () => {
   });
   const { toast } = useToast();
   
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prevData => ({
       ...prevData,
       [name]: value
     }));
-  };
+  }, []);
   
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = React.useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
@@ -43,7 +43,6 @@ const QuoteForm: React.FC = () => {
       };
       
       // Send email using EmailJS
-      // Note: You'll need to sign up for EmailJS and set up a service, template, and user ID
       await emailjs.send(
         'service_id',  // Replace with your EmailJS service ID
         'template_id', // Replace with your EmailJS template ID
@@ -78,7 +77,7 @@ const QuoteForm: React.FC = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [formData, toast]);
   
   return (
     <section id="quote" className="py-24 px-6 md:px-12 relative overflow-hidden">
