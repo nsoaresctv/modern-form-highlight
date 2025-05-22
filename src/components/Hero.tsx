@@ -4,12 +4,11 @@ import { ArrowDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-12 pt-20 pb-10 overflow-hidden grid-background">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.01] to-primary/[0.05] pointer-events-none" />
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-12 pt-20 pb-10 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-indigo-50 pointer-events-none" />
       
-      {/* Optimized background elements - using fewer CSS properties */}
-      <div className="absolute top-1/4 -left-20 w-64 h-64 rounded-full bg-blue-200/10 blur-3xl" />
-      <div className="absolute bottom-1/4 -right-20 w-80 h-80 rounded-full bg-purple-200/10 blur-3xl" />
+      <div className="absolute top-1/4 -right-20 w-64 h-64 rounded-full bg-blue-300/20 blur-3xl" />
+      <div className="absolute bottom-1/3 -left-20 w-80 h-80 rounded-full bg-purple-300/20 blur-3xl" />
       
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <div className="relative flex flex-col items-center lg:items-start text-center lg:text-left max-w-3xl mx-auto space-y-8 animate-fade-in order-2 lg:order-1">
