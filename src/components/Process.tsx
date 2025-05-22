@@ -51,7 +51,29 @@ const Process = () => {
         </div>
         
         <div className="relative">
-          <div className="absolute top-0 bottom-0 left-[28px] md:left-1/2 w-px bg-gradient-to-b from-blue-400 via-purple-400 to-teal-400 transform md:-translate-x-px"></div>
+          {/* Remplacer la ligne simple par un élément plus visuel */}
+          <div className="hidden md:block absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 w-2 z-0">
+            <div className="h-full w-full overflow-hidden">
+              <div className="h-full w-full bg-gradient-to-b from-blue-400 via-purple-400 to-teal-400 opacity-20 rounded-full"></div>
+            </div>
+            {/* Points de connexion animés */}
+            <div className="absolute top-[20%] left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-blue-400 opacity-30 animate-pulse"></div>
+            <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-purple-400 opacity-30 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute top-[60%] left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-teal-400 opacity-30 animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-[80%] left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-blue-400 opacity-30 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+          </div>
+          
+          {/* Version mobile: ligne verticale avec dégradé */}
+          <div className="md:hidden absolute top-0 bottom-0 left-[28px] w-2 z-0">
+            <div className="h-full w-full overflow-hidden">
+              <div className="h-full w-full bg-gradient-to-b from-blue-400 via-purple-400 to-teal-400 opacity-20 rounded-full"></div>
+            </div>
+            {/* Points de connexion animés (version mobile) */}
+            <div className="absolute top-[20%] left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-blue-400 opacity-30 animate-pulse"></div>
+            <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-purple-400 opacity-30 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute top-[60%] left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-teal-400 opacity-30 animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-[80%] left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-blue-400 opacity-30 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+          </div>
           
           <div className="space-y-12 relative">
             {steps.map((step, index) => (

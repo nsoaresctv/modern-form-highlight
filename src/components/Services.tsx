@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Monitor, Smartphone, Search } from 'lucide-react';
 
@@ -16,10 +15,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) =
       </div>
       <h3 className="text-xl font-semibold font-heading">{title}</h3>
       <p className="text-foreground/70 text-balance">{description}</p>
-      <div className="mt-4 flex items-center text-foreground/70 group-hover:text-foreground smooth-transition">
+      <a 
+        href="#quote" 
+        className="mt-4 flex items-center text-foreground/70 group-hover:text-foreground smooth-transition"
+      >
         <span className="text-sm font-medium">En savoir plus</span>
         <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-      </div>
+      </a>
     </div>
   );
 };
